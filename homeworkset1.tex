@@ -121,11 +121,11 @@ $ git add .
 $ git commit -m "D is Done"
 \end{lstlisting}  
 
-\noindent The following figure represent the commit history graph when on the \texttt{master} branch:
+\noindent The following figure represents the commit history graph when on the \texttt{master} branch:
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[width=3in]{Koala.jpg}
+\includegraphics[width=3in]{Master.png}
 \end{center}
 \caption{The commit history graph when on the \texttt{master} branch}
 \end{figure}
@@ -134,19 +134,20 @@ $ git commit -m "D is Done"
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[width=3in]{Lighthouse.jpg}
+\includegraphics[width=3in]{Alt.png}
 \end{center}
 \caption{The commit history graph when on the \texttt{alt} branch}
 \end{figure}
 
-\vskip.25in
+\newpage
+%\vskip.25in
 \noindent\textbf{Problem 2 (10 pts):}
 
 \noindent Assume that you have created a new github repository at: 
 \begin{center} 
 \texttt{https://github.com/ssu7/PoemCollection.git}
 \end{center} 
-\newline The follwing GIT Bash commands will produce what the problem asks for:
+\newline The following GIT Bash commands will produce what the problem asks for:
 \begin{lstlisting}
 $ git config --global user.name "Steven" #Sets the user name
 $ git config --global user.email "stevenemail@yahoo.com" #Sets the email of the user
@@ -194,43 +195,46 @@ $ git push origin master #Pushes main.txt to the previously setup github reposit
 
 \newpage
 \noindent\textbf{Problem 3 (40 pts):}
-Consider a team of four students, say, $A$, $B$, $C$ and $D$, 
-who just started working 
-on writing a \texttt{latex/beamer} file, say \texttt{main.tex}, 
-for a class presentation of their work statement.  
-Assume that they do not wish to coordinate their schedules for a
-concurrent group meeting (both virtually and physically).  
-Assume that:
-\begin{itemize}
-\item $A$ is in charge of \emph{Introduction},
-\item $B$ is of \emph{Problem Statement}, 
-\item $C$ is of  \emph{Timeline},
-\item $D$ is of \emph{Deliverable} part of the presentation.  
-\end{itemize}
-In other words, their contributions to \texttt{main.tex} do not overlap.
-Then, 
-\begin{itemize}
-\item first, devise a work flow strategy for the team so that they can
-  collaborate asynchronously using \texttt{git},
-\item next, devise yet another \texttt{git} strategy different from your earlier
-  proposal.  
-\end{itemize}
-Finally,
-\begin{itemize}
-\item discuss the strength and weakness of each of your proposed strategies in terms of merge
-conflicts resolution,
-\item make the final recommendation.  
-\end{itemize}
-In order to answer this question, \emph{build}
-a mathematical model, \emph{following} the guideline from IMM. 
-Use Section 1.4 and Section 1.5 of IMM as \emph{role models}.    
-For example, you are to identify which variables  are exogenous 
-and which are endogenous.  More specifically, among other things, 
-in your model, is the preamble part of \texttt{main.tex} an endogenous 
-or exogenous variable?  
-Note also that in addition to this issue, there are other issues that
-you are to consider.  So, \emph{be sure to consult IMM}. 
 
+\noindent The main issue faced by these 4 students is an organizational problem. How can the 4 students work on their portions of the project without using 
+
+There are two main approches this group of students can take towards solving their problem.
+%Consider a team of four students, say, $A$, $B$, $C$ and $D$, 
+%who just started working 
+%on writing a \texttt{latex/beamer} file, say \texttt{main.tex}, 
+%for a class presentation of their work statement.  
+%Assume that they do not wish to coordinate their schedules for a
+%concurrent group meeting (both virtually and physically).  
+%Assume that:
+%\begin{itemize}
+%\item $A$ is in charge of \emph{Introduction},
+%\item $B$ is of \emph{Problem Statement}, 
+%\item $C$ is of  \emph{Timeline},
+%\item $D$ is of \emph{Deliverable} part of the presentation.  
+%\end{itemize}
+%In other words, their contributions to \texttt{main.tex} do not overlap.
+%Then, 
+%\begin{itemize}
+%\item first, devise a work flow strategy for the team so that they can
+%  collaborate asynchronously using \texttt{git},
+%\item next, devise yet another \texttt{git} strategy different from your earlier
+%  proposal.  
+%\end{itemize}
+%Finally,
+%\begin{itemize}
+%\item discuss the strength and weakness of each of your proposed strategies in terms of merge
+%conflicts resolution,
+%\item make the final recommendation.  
+%\end{itemize}
+%In order to answer this question, \emph{build}
+%a mathematical model, \emph{following} the guideline from IMM. 
+%Use Section 1.4 and Section 1.5 of IMM as \emph{role models}.    
+%For example, you are to identify which variables  are exogenous 
+%and which are endogenous.  More specifically, among other things, 
+%in your model, is the preamble part of \texttt{main.tex} an endogenous 
+%or exogenous variable?  
+%Note also that in addition to this issue, there are other issues that
+%you are to consider.  So, \emph{be sure to consult IMM}. 
 \vskip0.25in
 \noindent\textbf{Problem 4 (aka.\ Fair Play, 40 pts):}
 Answer the following question:
