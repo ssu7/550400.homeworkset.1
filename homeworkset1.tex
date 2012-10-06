@@ -271,14 +271,24 @@ P_{matchB}=(1-P_{game})P_{game}+(1-P_{game})(1-P_{game})(1-P_{game})+P_{game}(P_
 
 \paragraph{}The first product term in (\ref{1}) represents the probability of Player A winning the \emph{set} in 2 straight games. The second product term in (\ref{1}) represents the probability of Player A winning the first game, losing the second, and winning the third. The third term in (\ref{1}) represents the probability of Player A losing the first game and winning the second and thrid games. Similarily the first product term in (\ref{2}) represents the probability of Player B winning the first 2 games. The second term in (\ref{2}) represents the probability of Player B winning the first game, losing the second game, and winning the third game. The last term in (\ref{2}) represents the probability of Player B losing the first game and winning the second and third games.
 
-
 \paragraph{} Careful analysis of (\ref{1}) and (\ref{2}) shows that if $P_{game}>0.5$ then $P_{matchA}>P_{matchB}$, and serving first is advantageous. If $P_{game}<0.5$, then $P_{matchA}<P_{matchB}$, and  serving first is disadvantageous. Note that if $P_{game}=0.5$ then $P_{matchA}=P_{matchB}$ and we find that serving first does not affect the fairness of tennis. 
 
 \paragraph{} In the prevous analysis we ignored the win by 2 \emph{games} rule; we now add it to our analysis. Again suppose that Player A served the first game. Note that the win by 2 \emph{games} rule only applies if 3 games have been previously played. There are only 2 situations to consider: either Player A is ahead 2 games to 1 or Player B is ahead 2 games to 1.
-\paragraph{} First consider the situation where Player A is ahead 2 \emph{games} to 1. We see that regardless of how Player A came to be ahead 2 games to 1 (either he won games 1 and 3 or won games 2 and 3), the probability of him winning the next game and thus the set is $(1-P_{game})$. Now consider the situation where Player B is ahead 2 games to 1. We see that regardless of how Player B came to be ahead 2 to 1 games the probability of him winning the next game and thus the set is $P_{game}$. 
+\paragraph{} First consider the situation where Player A is ahead 2 \emph{games} to 1. We see that regardless of how Player A came to be ahead 2 games to 1 (either he won games 1 and 3 or won games 2 and 3), the probability of him winning the next game and thus the set is $(1-P_{game})$. Now consider the situation where Player B is ahead 2 games to 1. We see that regardless of how Player B came to the 2 games to 1 lead (either he won games 1 and 3 or won games 2 and 3), the probability of him winning the next game and thus the set is $P_{game}$. Thus incorporating this element into (\ref{1}) and (\ref{2}) we get:
+\begin{equation}
+P_{matchA}=P_{game}(1-P_{game})+[P_{game}(P_{game})P_{game}+(1-P_{game})(1-P_{game})P_{game}](1-P_{game})
+\label{3}
+\end{equation} 
+\begin{equation}
+P_{matchB}=(1-P_{game})P_{game}+[(1-P_{game})(1-P_{game})(1-P_{game})+P_{game}(P_{game})(1-P_{game})]P_{game}
+\label{4}
+\end{equation}
 
-Thus incorporating 
+\paragraph{} The first terms in (\ref{3}) and (\ref{4}) are represent the same thing as they did in (\ref{1}) and (\ref{2}), respectively. The second term in (\ref{3}) is the probability of Player A being up 2 games to 1 game and then winning the 4th game and thus the set and match. Similarily, the second term in (\ref{4}) is the probability of Player B being up 2 games to 1 game and then winning the 4th game and thus the set and match. 
 
+\paragraph{}Careful algebraic analysis of (\ref{3}) and (\ref{4}) show that they are equal to each other, meaning that $P_{matchA}=P_{matchB}$ for all $P_{game}\in(0,1)$. Thus we conclude that serving first in a tennis match does not provide an advantage to a player. Note that the 3 only model up to 4 games since that is all that is necessary. Player A being up 3 to 2 or 4 to 3 or even 100 to 99 games is similar to the situation where he is up 2 to 1 games. The same is also true for Player B. The equations to model these situations would just have more terms in them, but mathematically and logically, they follow (\ref{3}) and (\ref{4}).
+
+\paragraph{} The model of fairness we outlined above is useful only if we can find an empirical value of $P_{game}$. Looking at a players history of matches, we can find out $P_{game}$ and use 
 %Answer the following question:
 %\begin{verse}
 %Is the tennis game fair?
