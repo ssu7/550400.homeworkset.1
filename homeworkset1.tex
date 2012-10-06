@@ -146,7 +146,7 @@ $ git commit -m "D is Done"
 \begin{center} 
 \texttt{https://github.com/ssu7/PoemCollection.git}
 \end{center} 
-\newline The following GIT Bash commands will produce what the problem asks for:
+The following GIT Bash commands will produce what the problem asks for:
 \begin{lstlisting}
 $ git config --global user.name "Steven" #Sets the user name
 $ git config --global user.email "stevenemail@yahoo.com" #Sets the email of the user
@@ -195,21 +195,21 @@ $ git push origin master #Pushes main.txt to the previously setup github reposit
 \newpage
 \noindent\textbf{Problem 3 (40 pts):}
 
-\paragraph{} The issue of asynchronous collaboration on a class project is a common problem faced by many college students. git, a free and open source version control software, offers a possible solution to this issue. In the proposed situation, there are 4 students, A, B, C, and D, who will all be working on different portions of a LaTeX/Beamer presentation. The main problem to model in this situation is how to setup a GIT work flow process that minimizes the merge conflict resolutions. 
+\paragraph{} The issue of asynchronous collaboration on a class project is a common problem faced by many college students. git, a free and open source version control software, offers a possible solution to this issue. In the proposed situation, there are 4 students, A, B, C, and D, who will all be working on different portions of a LaTeX/Beamer presentation . The main problem in this situation is to model a GIT workflow process that minimizes the merge conflict resolutions. 
 
-\paragraph{}We will assume that each student will only edit the section of the Beamer presenation in \texttt{main.txt} which they are responsible for. They will NOT edit any other sections. If their section requires additional LaTeX packages, each student will add the necessary packages to the preamble portion of \texttt{main.txt}. Under these assumptions, the preamble part of \texttt{main.txt} is the lone exogenous variable. The model does not attempt to study/explain this variable. The endogenous variables are how the different sections of the Beamer presentation (\emph{Introduction}, \emph{Problem Statement}, \emph{Timeline}, and \emph{Deliverables}) are edited and comitted using git. 
+\paragraph{} As stated in the problem statement, we will assume that each student will only edit the section of the Beamer presenation in \texttt{main.txt} which they are responsible for, and will NOT edit any other sections. Furthermore, as previosly stated in the problem statement, none of the sections in \texttt{main.txt} overlap. In addition, if a student's section requires additional LaTeX packages, that student will add the necessary packages to the preamble portion of \texttt{main.txt}. Under these assumptions, the preamble part of \texttt{main.txt} is an exogenous variable. The endogenous variables (i.e. what we are interested in studying) are how effective different git workflows are at minimizing merge conflict resolutions. More specifically the endogenous variables can be thought of as how changes and edits to the the different sections of the Beamer presentation (\emph{Introduction}, \emph{Problem Statement}, \emph{Timeline}, and \emph{Deliverables}) are comitted using git. The endogenous and exogenous variables are interrelated in that the workflow for committing changes to \texttt{main.txt} (i.e the endogenous variable) will affect how often and how smoothly the preamble portion of \texttt{main.txt} is merged (i.e. the exogenous variable). In addition, we will further assume that each student are all proficient at using git, and as such, the git proficiency of the students is an unimportant and ignored variable.
 
 \paragraph{} One possible workflow process that could be employed in this situation uses a remote git repository with a \texttt{master} branch and 4 other branches, say \texttt{A}, \texttt{B}, \texttt{C}, and \texttt{D}, one for each student. In this workflow, each student will clone the remote git repository onto their computer and (i.e. create a local git repository). Each student will then edit/create their respective section of \texttt{main.txt} while commiting these changes to only their assigned branch in their local repository. After a student is satisfied with his/her section of \texttt{main.txt}, he/she can then merge his/her final local branch to his/her local \texttt{master} branch. After this the student will push both his/her local assigned branch to the corresponding remote assigned branch as well as push the local \texttt{master} branch to the remote \texttt{master} branch. After a student pushes his/her local \texttt{master} branch to the remote \texttt{master} branch, he/she will be responsible for merging their section into the existing file. Since each student only edits his/her respective section of \texttt{main.txt}, the merge process should be fairly straight-forward and easy. Each section of \texttt{main.txt} in the \texttt{master} branch of the remote repository should be empty up until the student who is responsible for that section pushes his/her version of the presentation to the \texttt{master} branch in the remote repository. A student will only need to check to see if his/her section has been added correctly, and that the other sections haven't been affected (which they shouldn't). The only portion of \texttt{main.txt} that this is not true of is the preamble portion in which case a merge conflict may arise. However merging this section should be easy as well; each student should keep what is in the preamble of the version in the remote repository and add in the changes they made. 
 
 \paragraph{}Using this workflow, the \texttt{master} branch in the remote repository should be very clean: the only nodes that appear in the commit history should be when each student adds his/her finalized section of the presentation. This workflow also allows for edits and commits made by each student for their section of the presentation to be remembered through the commit history of the 4 student branches. This workflow also minimizes the number of merges that need to be made since only each student will only merge their contributions to the remote \texttt{master} branch only once.
 
-\paragraph{} Another possible workflow process uses one remote group repository with a single \texttt{master} branch. Each student will again clone the remote repository onto their own computer and create a local repository. However in this workflow, each student will edit and commit changes directly to his/her local \texttt{master} branch and every so often push and merge these commits to the remote \texttt{master} branch. Students will continue doing this until they are all satisfied with their sections. 
+\paragraph{} Another possible workflow process uses one remote group repository with a single \texttt{master} branch. Each student will again clone the remote repository onto their own computer and create a local repository. However in this workflow, each student will edit and commit changes directly to his/her local \texttt{master} branch and every so often push and merge these commits to the remote \texttt{master} branch. Students will continue doing this until they are all satisfied with their sections. At the end of all the commits, the final, completed version of \texttt{main.txt} will be in the final commit of the remote \texttt{master} branch. 
 
-\paragraph{} This workflow involves more pushes and merges to the remote \texttt{master} branch then necessary. Most of these merges should still be straight-forward since each student will only make changes to their own section of \texttt(main.txt} which does not overlap with any other section. However merges that involve the preamble portion will again require special attention since all 4 students can potentially change this portion of the LaTeX file. This workflow also mixes the commit histories of each section into the remote \texttt{master} branch's commit history which could potentially be very messy. This workflow also fails to utilize branching, which is a main feature of git.
+\paragraph{} This workflow involves more pushes and merges to the remote \texttt{master} branch then necessary. Most of these merges should still be straight-forward since each student will only make changes to their own section of \texttt{main.txt} which does not overlap with any other section. However merges that involve the preamble portion will again require special attention since all 4 students can potentially change this portion of the LaTeX file. This workflow also mixes the commit histories of each section into the remote \texttt{master} branch's commit history which could potentially become very messy. This workflow also fails to utilize branching, which is a main feature of git.
 
-\paragraph{} Because the first proposed workflow minimizes the number of times the students merge files, it is better than the second proposed workflow. Anytime a merge happens, there is a chance that a merge conflict will arise which then needs to be resolved. Therefore by mimimizing the total times the students merge files, the first proposed workflow in essence minimizes the potential number of merge conflicts that need to be resolved. Because the recommended workflow model minimizes merge conflicts, it, in theory, solves the previously formulated problem which was to develop a workflow strategy which minimizes merge conflict resolutions. 
+\paragraph{} There is a causal relationship between the number of times merges occur and the number of merge conflicts: the greater the number of merges, the greater the possible number of merge conflicts. The mechanism by which this causal relationship happens can be easily understood: anytime a merge happens, there is a chance that a merge conflict will arise which then needs to be resolved. This causal relationship is strong and consistent in its association. The causal relationship is also temporal in its nature: the cause (merges) precedes the effect (merge conflicts). Therefore by mimimizing the total times the students merge files, the first proposed workflow in essence minimizes the potential number of merge conflicts that need to be resolved. As such, the first proposed workflow model solves the previously formulated problem which was to develop a workflow strategy which minimizes merge conflict resolutions, and is thus a useful workflow model. We therefore can recommend using the first proposed workflow over the second.
 
-\paragraph{} We can test the recommended workflow model to see if it is indeed better then the second workflow by  having 4 students working on a group presentation employ the recommended workflow scheme and having another group of 4 students use the second workflow scheme. Whichever group of students encounters less merge conflicts and has less trouble with merge conflict resolutions is the group that used the better workflow. If the group using the recommended workflow follows it precisely, then in a worst case scenario they will have 4 merge conflicts to resolve (once per student), where as the other group could potentially have far more merge conflicts. Therefore we can conclude that our recommended workflow does indeed minimize merge conflicts and is better than the other proposed workflow. 
+\paragraph{} We can test the recommended workflow model to see if it is indeed better then the second workflow by  having 4 students working on a group presentation employ the recommended workflow scheme and having another group of 4 students use the second workflow scheme. Whichever group of students encounters less merge conflicts and has less trouble with merge conflict resolutions is the group that used the better workflow. In theory, if the group using the recommended workflow should only have 4 merge conflicts to resolve in a worst case scenario. (Each student will only push their finalized version of their section to the remote \texttt{master} branch once.) The other group could potentially have far more merge conflicts since they are continually pushing and merging their unfinished work to the same remote \texttt{master} branch. Thus by using logic we can conclude that our recommended workflow does indeed minimize merge conflicts and is better than the other proposed workflow. 
 
 %Consider a team of four students, say, $A$, $B$, $C$ and $D$, 
 %who just started working 
@@ -248,32 +248,45 @@ $ git push origin master #Pushes main.txt to the previously setup github reposit
 %Note also that in addition to this issue, there are other issues that
 %you are to consider.  So, \emph{be sure to consult IMM}. 
 \vskip0.25in
+\newpage
 \noindent\textbf{Problem 4 (aka.\ Fair Play, 40 pts):}
-Answer the following question:
-\begin{verse}
-Is the tennis game fair?
-\end{verse}
-Note that unlike Problem 3, this question is vaguely stated.
-This is intensional, whence to begin, you will first need to clarify
-what exactly your question is.
-You may use the class discussion on this particular 
-problem, but you \emph{may not} directly refer to our 
-discussion.  Instead, formulate the model carefully but concisely in 
-your own words.   
 
-\vskip0.25in
-\noindent\textbf{Final Remarks about Problem 3 \& Problem 4:} 
-They are open-ended problems.  However, your scores will be determined
-by how well do you follow the exposition style outlined by IMM and
-WMA.  For both problems, your write-up should be 
-\begin{itemize}
-\item self-contained,
-\item covering all four parts of Section 1.3 of IMM,
-\item paying a particular attention to any causal relation that you
-  might be investigating, following Chapter 3 of WMA,
-\item answering questions that are explicitly asked in the problem statements.
-\end{itemize}
-For Problem 3, focus mostly on Step 2 and Step 3 of Section
-1.3 of IMM.  For Problem 4, focus mostly on Step 1 and Step
-2.  For each problem, minimum 1 pages and maximum 2 pages.
+\paragraph{} Tennis is an exciting sport to watch and follow once a person understands it's rules. In a tennis match, one player, say Player A, starts out as a server and the other player, say Player B, starts as the reciever. The winner of a \emph{game} is the first player to 4 points. The players switch serve after each \emph{game}. The first player to win 6 out of 11 \emph{games} wins the \emph{set}. Note that a player must win by 2 \emph{games} to win a set, so more then 11 \emph{games} could be played per \emph{set}. The first player to win 3 out of 5 \emph{sets} wins the entire \emph{match}.
+
+\paragraph{} The question we are trying to answer is whether serving first gives an advantage to a player. This is the same as asking if a player serves first is he more likely to win the match then the other player who recieves first. In order to simplify the model, we will neglect any innate skill difference between the two players and assume that each player is of equal skill as the other player. In other words, we will assume that the probability of Player A winning a \emph{game} when he is serving is equal to the probabiity that Player B will win a \emph{game} when Player B is serving. Let us denote this probability as $P_{game}$.
+
+\paragraph{} By making this assumption, we are making the players' skill difference a unimportant variable and ignoring it. Another unimportant variable that we will ignore is any and all psychological factors that may impact players when they are competing. The exogenous variable in this problem is the probability of a player winning a \emph{game} when he is serving, which as previously stated, is $P_{game}$ for both players. The endogenous variable is the probability that a player wins the match; let us denote this $P_{matchA}$ for Player A and $P_{matchB}$ for Player B.
+
+\paragraph{} To simplify our model, we will consider an abbreviated tennis match and analyze the \emph{match} at at \emph{games} level. Suppose that the first player to win 2 out of 3 \emph{games} wins a \emph{set}, and that the first player to win 1 \emph{set} wins the \emph{match}. For now we will ignore the win by two \emph{games} rule. Imagine that each game is a Bernouli trial: the serving player has $P_{game}$ chance of winning and $1-P_{game}$ of losing (i.e. the reciever wins the game). Suppose Player A serves the first game. He has $P_{game}$ chance of winning that match, while Player B (the reciever) has $1-P_{game}$ chance of winning the game. In the next game Player B serves and Player A receives and thus now Player B has $P_{game}$ chance of winning the second game and Player A now has $1-P_{game}$ chance of winning the second game. The probabilities of winning once again reverse for the third game. Thus for Player A, $P_{matchA}=P_{game}(1-P_{game})P_{game}$ and for Player B, $P_{matchB}=(1-P_{game})P_{game}(1-P_{game})$. Clearly if $P_{game}>0.5$ then $P_{matchA}>P_{matchB}$ and serving first is advantageous. If the opposite is true (i.e. $P_{game}<0.5$) then $P_{matchA}<P_{matchB}$, then serving first is disadvantageous. Note that if $P_{game}=0.5$ then $P_{matchA}=P_{matchB}$ and we find that serving first does not affect the fairness of tennis.
+
+\paragraph{} In the prevous analysis we ignored the win by 2 \emph{games}rule; we now add it to our analysis. Let  
+
+
+%Answer the following question:
+%\begin{verse}
+%Is the tennis game fair?
+%\end{verse}
+%Note that unlike Problem 3, this question is vaguely stated.
+%This is intensional, whence to begin, you will first need to clarify
+%what exactly your question is.
+%You may use the class discussion on this particular 
+%problem, but you \emph{may not} directly refer to our 
+%discussion.  Instead, formulate the model carefully but concisely in 
+%your own words.   
+
+%\vskip0.25in
+%\noindent\textbf{Final Remarks about Problem 3 \& Problem 4:} 
+%They are open-ended problems.  However, your scores will be determined
+%by how well do you follow the exposition style outlined by IMM and
+%WMA.  For both problems, your write-up should be 
+%\begin{itemize}
+%\item self-contained,
+%\item covering all four parts of Section 1.3 of IMM,
+%\item paying a particular attention to any causal relation that you
+%  might be investigating, following Chapter 3 of WMA,
+%\item answering questions that are explicitly asked in the problem statements.
+%\end{itemize}
+%For Problem 3, focus mostly on Step 2 and Step 3 of Section
+%1.3 of IMM.  For Problem 4, focus mostly on Step 1 and Step
+%2.  For each problem, minimum 1 pages and maximum 2 pages.
 \end{document}
