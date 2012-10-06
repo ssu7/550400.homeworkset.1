@@ -257,10 +257,27 @@ $ git push origin master #Pushes main.txt to the previously setup github reposit
 
 \paragraph{} By making this assumption, we are making the players' skill difference a unimportant variable and ignoring it. Another unimportant variable that we will ignore is any and all psychological factors that may impact players when they are competing. The exogenous variable in this problem is the probability of a player winning a \emph{game} when he is serving, which as previously stated, is $P_{game}$ for both players. The endogenous variable is the probability that a player wins the match; let us denote this $P_{matchA}$ for Player A and $P_{matchB}$ for Player B.
 
-\paragraph{} To simplify our model, we will consider an abbreviated tennis match and analyze the \emph{match} at at \emph{games} level. Suppose that the first player to win 2 out of 3 \emph{games} wins a \emph{set}, and that the first player to win 1 \emph{set} wins the \emph{match}. For now we will ignore the win by two \emph{games} rule. Imagine that each game is a Bernouli trial: the serving player has $P_{game}$ chance of winning and $1-P_{game}$ of losing (i.e. the reciever wins the game). Suppose Player A serves the first game. He has $P_{game}$ chance of winning that match, while Player B (the reciever) has $1-P_{game}$ chance of winning the game. In the next game Player B serves and Player A receives and thus now Player B has $P_{game}$ chance of winning the second game and Player A now has $1-P_{game}$ chance of winning the second game. The probabilities of winning once again reverse for the third game. Thus for Player A, $P_{matchA}=P_{game}(1-P_{game})P_{game}$ and for Player B, $P_{matchB}=(1-P_{game})P_{game}(1-P_{game})$. Clearly if $P_{game}>0.5$ then $P_{matchA}>P_{matchB}$ and serving first is advantageous. If the opposite is true (i.e. $P_{game}<0.5$) then $P_{matchA}<P_{matchB}$, then serving first is disadvantageous. Note that if $P_{game}=0.5$ then $P_{matchA}=P_{matchB}$ and we find that serving first does not affect the fairness of tennis.
+\paragraph{} To simplify our model, we will consider an abbreviated tennis match and analyze the \emph{match} at at \emph{games} level. Suppose that the first player to win 2 out of 3 \emph{games} wins a \emph{set}, and that the first player to win 1 \emph{set} wins the \emph{match}. For now we will ignore the win by two \emph{games} rule. Imagine that each game is a Bernouli trial: the serving player has $P_{game}$ chance of winning and $1-P_{game}$ of losing (i.e. the reciever wins the game). Suppose Player A serves the first game. He has $P_{game}$ chance of winning that match, while Player B (the reciever) has $1-P_{game}$ chance of winning the game. In the next game Player B serves and Player A receives and thus now Player B has $P_{game}$ chance of winning the second game and Player A now has $1-P_{game}$ chance of winning the second game. The probabilities of winning once again reverse for the third game. 
+\paragraph{} Note that the \emph{set} (and thus the \emph{match}) could end after 2 \emph{games} or all 3 \emph{games} could be needed to decide the winner of the \emph{set}. Thus we have the following equations:
 
-\paragraph{} In the prevous analysis we ignored the win by 2 \emph{games}rule; we now add it to our analysis. Let  
+\begin{equation}
+P_{matchA}=P_{game}(1-P_{game})+P_{game}(P_{game})P_{game}+(1-P_{game})(1-P_{game})P_{game}
+\label{1}
+\end{equation}
+\begin{equation}
+P_{matchB}=(1-P_{game})P_{game}+(1-P_{game})(1-P_{game})(1-P_{game})+P_{game}(P_{game})(1-P_{game})
+\label{2}
+\end{equation}
 
+\paragraph{}The first product term in (\ref{1}) represents the probability of Player A winning the \emph{set} in 2 straight games. The second product term in (\ref{1}) represents the probability of Player A winning the first game, losing the second, and winning the third. The third term in (\ref{1}) represents the probability of Player A losing the first game and winning the second and thrid games. Similarily the first product term in (\ref{2}) represents the probability of Player B winning the first 2 games. The second term in (\ref{2}) represents the probability of Player B winning the first game, losing the second game, and winning the third game. The last term in (\ref{2}) represents the probability of Player B losing the first game and winning the second and third games.
+
+
+\paragraph{} Careful analysis of (\ref{1}) and (\ref{2}) shows that if $P_{game}>0.5$ then $P_{matchA}>P_{matchB}$, and serving first is advantageous. If $P_{game}<0.5$, then $P_{matchA}<P_{matchB}$, and  serving first is disadvantageous. Note that if $P_{game}=0.5$ then $P_{matchA}=P_{matchB}$ and we find that serving first does not affect the fairness of tennis. 
+
+\paragraph{} In the prevous analysis we ignored the win by 2 \emph{games} rule; we now add it to our analysis. Again suppose that Player A served the first game. Note that the win by 2 \emph{games} rule only applies if 3 games have been previously played. There are only 2 situations to consider: either Player A is ahead 2 games to 1 or Player B is ahead 2 games to 1.
+\paragraph{} First consider the situation where Player A is ahead 2 \emph{games} to 1. We see that regardless of how Player A came to be ahead 2 games to 1 (either he won games 1 and 3 or won games 2 and 3), the probability of him winning the next game and thus the set is $(1-P_{game})$. Now consider the situation where Player B is ahead 2 games to 1. We see that regardless of how Player B came to be ahead 2 to 1 games the probability of him winning the next game and thus the set is $P_{game}$. 
+
+Thus incorporating 
 
 %Answer the following question:
 %\begin{verse}
